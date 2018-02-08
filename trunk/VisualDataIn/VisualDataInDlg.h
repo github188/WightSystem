@@ -1,0 +1,52 @@
+
+// VisualDataInDlg.h : 头文件
+//
+
+#pragma once
+#include "SerialPort.h"
+#include "afxwin.h"
+
+// CVisualDataInDlg 对话框
+class CVisualDataInDlg : public CDialogEx
+{
+// 构造
+public:
+	CVisualDataInDlg(CWnd* pParent = NULL);	// 标准构造函数
+
+// 对话框数据
+	enum { IDD = IDD_VISUALDATAIN_DIALOG };
+
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
+
+
+// 实现
+protected:
+	HICON m_hIcon;
+
+	// 生成的消息映射函数
+	virtual BOOL OnInitDialog();
+	afx_msg void OnPaint();
+	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg LONG OnCommunication(WPARAM ch, LPARAM port);
+	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedCheck1();
+	afx_msg void OnSelendokComboComselect();
+
+public:
+	CSerialPort m_PortSN;
+	CSerialPort m_PortW;
+	CString	m_ReceiveData;
+	CString	m_strSendData;
+	DWORD m_dwCommEvents;
+	afx_msg void OnSelendokComboComselect2();
+	CComboBox m_Com;
+	CComboBox m_Com2;
+	afx_msg void OnBnClickedButton1();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton4();
+	CEdit txt_ctrlSN;
+	CString m_SN;
+};
